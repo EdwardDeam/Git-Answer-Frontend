@@ -13,7 +13,7 @@ class PostForm extends React.Component {
     axios
       .post(postPath, {
         title: this.state.title,
-        body: this.state.body,
+        text: this.state.text,
         tags: this.state.tags
       })
       .then(res => {
@@ -33,10 +33,10 @@ class PostForm extends React.Component {
             className='titlepost'
           />
 
-          <label htmlFor='body'>Body</label>
+          <label htmlFor='text'>Body</label>
           <input
             type='textarea'
-            name='body'
+            name='text'
             onChange={this.handleChange}
             className='bodypost'
           />
