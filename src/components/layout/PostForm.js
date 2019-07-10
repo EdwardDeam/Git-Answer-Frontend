@@ -3,18 +3,29 @@ import axios from 'axios';
 
 class PostForm extends React.Component {
   handleChange = e => {
+    console.log(e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
   handleSubmit = e => {
     e.preventDefault();
-    const postPath = 'post_path';
+    console.log(this.state);
+    const postPath = 'http://localhost:5000/posts';
+    axios
+      .post(postPath, {
+        title: this.state.title,
+        body: this.state.body,
+        tags: this.state.tags
+      })
+      .then(res => {
+        console.log(res);
+      });
   };
   render() {
     return (
       <div>
         <h1>Create new post</h1>
         <form onSubmit={this.handleSubmit}>
-          <label for='title'>Title</label>
+          <label htmlFor='title'>Title</label>
           <input
             type='text'
             name='title'
@@ -23,11 +34,20 @@ class PostForm extends React.Component {
           />
 
           <label htmlFor='body'>Body</label>
-          <input type='textarea' name='body' className='bodypost' />
+          <input
+            type='textarea'
+            name='body'
+            onChange={this.handleChange}
+            className='bodypost'
+          />
 
-          <label htmlFor='tags' className='tagpost'>
-            Tags
-          </label>
+          <label htmlFor='tags'>Tags</label>
+          <input
+            type='text'
+            name='tags'
+            onChange={this.handleChange}
+            className='tagpost'
+          />
 
           <input type='submit' value='Submit' />
         </form>
