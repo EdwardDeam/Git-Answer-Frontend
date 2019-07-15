@@ -1,0 +1,88 @@
+.trending-box {
+  padding: 0px 45px 0px 10px;
+  background: F2F3F4;
+}
+
+.trending-box hr {
+  border: 1px solid e1e1e1;
+}
+
+.trending-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 10px 0px 10px;
+}
+
+.trending-header h2 {
+  color: #000;
+  padding: 0px;
+  margin: 0px;
+}
+
+.trending-header a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--blue);
+}
+
+.trending-hr {
+  border: 1px solid #e4e5e7;
+  margin-left: 8px;
+  margin-bottom: 0px;
+}
+
+.trending-list {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.trending-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.trending-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.trending-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 45px;
+  text-align: left;
+}
+
+.trending-card h4 {
+  font-weight: bold;
+}
+
+.trending-card h5 {
+  color: var(--titlegrey);
+  margin: 0;
+  padding: 0;
+}
+
+.trending-card p {
+  color: var(--bodygrey);
+  margin-right: 8px;
+}
+
+.trending-card a {
+  text-decoration: none;
+  color: var(--blue);
+  font-size: 14px;
+  margin: 0;
+  padding: 0px 0px 35px 0px;
+}
+
+.trending-card a:hover {
+  color: black;
+  cursor: pointer;
+}
