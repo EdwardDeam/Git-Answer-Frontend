@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import PostForm from "./components/layout/PostForm";
 import CommentForm from "./components/layout/CommentForm";
