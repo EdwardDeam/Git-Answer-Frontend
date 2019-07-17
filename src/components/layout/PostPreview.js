@@ -8,8 +8,9 @@ export default function PostPreview(props) {
       <h4>
         {props.data.author} • {props.data.date}
       </h4>
-      <p>{props.data.text}</p>
-      <a href="#">Keep Reading</a>
+      <p>
+        {props.data.text.slice(0, 400)}... <a href="#">Keep Reading</a>
+      </p>
     </div>
   );
 }
