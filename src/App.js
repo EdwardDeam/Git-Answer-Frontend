@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import PostForm from "./components/layout/PostForm";
 import CommentForm from "./components/layout/CommentForm";
@@ -9,15 +8,13 @@ import Landing from "./components/layout/Landing";
 
 function App() {
   return (
-    <div>
-      <div className="App">
-        <NavBar />
-        <Splash />
-        <Landing />
-        <hr />
-        <PostForm />
-        <CommentForm />
-      </div>
+    <div className="App">
+      <NavBar />
+      <Splash />
+      <Landing />
+      <hr />
+      <PostForm />
+      <CommentForm />
     </div>
   );
 }
