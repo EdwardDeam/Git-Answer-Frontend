@@ -21,3 +21,15 @@ function App() {
 }
 
 export default App;
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <p>Hello</p>
+//         <Registration />
+//         <Login />
+//       </div>
+//     );
+//   }
+// }
