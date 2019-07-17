@@ -45,7 +45,8 @@
 }
 .search-button {
   border: none;
-  height: 95%;
+  height: 100%;
+  font-size: 1.1em;
   border: 1px solid var(--blue);
   background: var(--blue);
   color: #fff;
