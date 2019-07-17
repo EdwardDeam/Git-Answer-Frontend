@@ -7,17 +7,19 @@ import NavBar from "./components/layout/NavBar";
 import Splash from "./components/layout/Splash";
 import Landing from "./components/layout/Landing";
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <Splash />
-      <Landing />
-      <hr />
-      <PostForm />
-      <CommentForm />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <NavBar />
+        <Splash />
+        <Landing />
+        <hr />
+        <PostForm />
+        <CommentForm />
+      </div>
+    );
+  }
 }
 
 export default App;

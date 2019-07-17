@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Landing.css";
 import PostPreview from "./PostPreview";
 import TrendingPosts from "./TrendingPosts";
+const API = "https://git-answer-backend.now.sh/posts";
 
 const date = new Date();
 const testPost = {
@@ -18,29 +19,56 @@ const testPost = {
   })
 };
 export default class Landing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: null
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(API);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const posts = await response.json();
+      this.setState({ posts: posts });
+      console.log(posts);
+    } catch (error) {
+      console.error(error);
+      console.log("Fetch Error: Landing.js, componentDidMount");
+    }
+  }
+
   render() {
+    if (!this.state.posts) {
+      return <div />;
+    }
     return (
       <div className="content">
         <div className="main-container">
           <h2>Latest Solutions</h2>
           <hr />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
-          <PostPreview data={testPost} />
+          {this.state.posts.map(post => (
+            <PostPreview key={post._ID} data={post} />
+          ))}
+          {/* <PostPreview data={this.state.posts[1]} /> */}
         </div>
 
         <div className="right-side-container">
           <div className="trending-container">
             <h2>Trending</h2>
             <hr className="trending-hr" />
+            <TrendingPosts data={this.state.posts[0]} />
+            <TrendingPosts data={this.state.posts[1]} />
+            <TrendingPosts data={this.state.posts[2]} />
+            <TrendingPosts data={this.state.posts[3]} />
+            <TrendingPosts data={this.state.posts[4]} />
+            {/* <TrendingPosts data={testPost} />
             <TrendingPosts data={testPost} />
             <TrendingPosts data={testPost} />
-            <TrendingPosts data={testPost} />
-            <TrendingPosts data={testPost} />
+            <TrendingPosts data={testPost} /> */}
           </div>
           <div className="right-side-box">
             <p />
