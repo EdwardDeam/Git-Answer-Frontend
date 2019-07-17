@@ -4,7 +4,7 @@ import "./App.css";
 import PostForm from "./components/layout/PostForm";
 import CommentForm from "./components/layout/CommentForm";
 import NavBar from "./components/layout/NavBar";
-import Splash from "./components/layout/Splash";
+import Splash from "./components/layout/Header";
 import Landing from "./components/layout/Landing";
 
 class App extends React.Component {
