@@ -9,13 +9,15 @@ import Landing from "./components/layout/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Splash />
-      <Landing />
-      <hr />
-      <PostForm />
-      <CommentForm />
+    <div>
+      <div className="App">
+        <NavBar />
+        <Splash />
+        <Landing />
+        <hr />
+        <PostForm />
+        <CommentForm />
+      </div>
     </div>
   );
 }
