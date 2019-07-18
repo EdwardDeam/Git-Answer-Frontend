@@ -22,6 +22,7 @@ class Login extends React.Component {
         password: password
       });
       // token logic
+      // console.log(response);
       localStorage.setItem("token", response.data);
     } catch (err) {
       console.log(err.response);
