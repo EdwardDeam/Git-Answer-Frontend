@@ -3,20 +3,22 @@ import "./App.css";
 import PostForm from "./components/layout/PostForm";
 import CommentForm from "./components/layout/CommentForm";
 import NavBar from "./components/layout/NavBar";
-import Splash from "./components/layout/Splash";
+import Header from "./components/layout/Header";
 import Landing from "./components/layout/Landing";
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <Splash />
-      <Landing />
-      <hr />
-      <PostForm />
-      <CommentForm />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <NavBar />
+        <Header />
+        <Landing />
+        <hr />
+        <PostForm />
+        <CommentForm />
+      </div>
+    );
+  }
 }
 
 export default App;

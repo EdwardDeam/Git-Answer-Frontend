@@ -3,7 +3,7 @@ import "./TrendingPosts.css";
 
 export default function TrendingPosts(props) {
   return (
-    <div class="trending-card">
+    <div className="trending-card">
       <h4>{props.data.title}</h4>
       <h5>
         {props.data.author} • {props.data.date}
