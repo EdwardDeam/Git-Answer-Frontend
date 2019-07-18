@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 export default class NavBar extends Component {
@@ -7,10 +8,9 @@ export default class NavBar extends Component {
       <header className="topnav">
         <h3>GitAnswer</h3>
         <div className="topnav-links">
-          <a href="#">Features</a>
-          <a href="#">Features</a>
-          <a href="#">Features</a>
-          <a href="#">Sign In</a>
+          <Link to="/">Home</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/profile">Sign In</Link>
         </div>
       </header>
     );
