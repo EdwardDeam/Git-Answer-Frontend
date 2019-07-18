@@ -1,5 +1,5 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
 class PostForm extends React.Component {
   handleChange = e => {
@@ -9,15 +9,23 @@ class PostForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    const postPath = 'http://localhost:5000/posts';
+    const postPath = "http://localhost:5000/posts";
+    const token = localStorage.getItem("token");
     axios
-      .post(postPath, {
-        title: this.state.title,
-        text: this.state.text,
-        tags: this.state.tags
-      })
+      .post(
+        postPath,
+        {
+          title: this.state.title,
+          text: this.state.text,
+          tags: this.state.tags
+        },
+        { headers: { "x-auth-token": token } }
+      )
       .then(res => {
         console.log(res);
+      })
+      .catch(err => {
+        console.log(err.response);
       });
   };
   render() {
@@ -25,31 +33,31 @@ class PostForm extends React.Component {
       <div>
         <h1>Create new post</h1>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='title'>Title</label>
+          <label htmlFor="title">Title</label>
           <input
-            type='text'
-            name='title'
+            type="text"
+            name="title"
             onChange={this.handleChange}
-            className='titlepost'
+            className="titlepost"
           />
 
-          <label htmlFor='text'>Body</label>
+          <label htmlFor="text">Body</label>
           <input
-            type='textarea'
-            name='text'
+            type="textarea"
+            name="text"
             onChange={this.handleChange}
-            className='bodypost'
+            className="bodypost"
           />
 
-          <label htmlFor='tags'>Tags</label>
+          <label htmlFor="tags">Tags</label>
           <input
-            type='text'
-            name='tags'
+            type="text"
+            name="tags"
             onChange={this.handleChange}
-            className='tagpost'
+            className="tagpost"
           />
 
-          <input type='submit' value='Submit' />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );
