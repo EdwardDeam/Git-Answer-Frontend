@@ -23,7 +23,7 @@ class Routes extends React.Component {
             )}
           />
           <Route path="/profile" component={Profile} />
-          <Route path="/:id" component={PostDetail} />
+          <Route path="/posts/:id" component={PostDetail} />
         </Switch>
       </div>
     );

@@ -11,6 +11,7 @@ class PostDetail extends Component {
     let API = `https://git-answer-backend.now.sh/posts/${id}`;
     try {
       const response = await axios.get(API);
+      console.log(response);
       this.setState({
         posts: response.data
       });
@@ -21,6 +22,7 @@ class PostDetail extends Component {
   }
   render() {
     console.log("inside render");
+    console.log(this.state);
     // return <p>Loading</p>;
     // console.log(this.props.match.params);
     return (
