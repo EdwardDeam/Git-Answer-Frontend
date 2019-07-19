@@ -10,12 +10,21 @@ import Registration from "./components/Registration/Registration";
 import Routes from "./Routes";
 
 class App extends React.Component {
-  state = { loggedIn: false };
+  state = {
+    loggedIn: false,
+    redirect: true
+  };
 
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     if (token) this.setState({ loggedIn: true });
   };
+
+  // renderRedirect = () => {
+  //   if (!this.state.loggedIn) {
+  //     return <Redirect to="/profile" />;
+  //   }
+  // };
 
   // handleLogin = () => {
   //   this.setState({ loggedIn: true });
@@ -32,6 +41,7 @@ class App extends React.Component {
         <Header />
         <Routes
           loggedIn={this.state.loggedIn}
+          renderRedirect={this.renderRedirect}
           handleLogout={this.handleLogout}
         />
       </div>

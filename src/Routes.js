@@ -15,7 +15,12 @@ class Routes extends React.Component {
         <Switch>
           <Route path="/" exact component={Landing} />
           {this.props.loggedIn && <Route path="/profile" component={Profile} />}
-          <Route path="/login" render={props => <Login {...props} />} />
+          <Route
+            path="/login"
+            render={props => (
+              <Login handleLogout={this.props.handleLogout} {...props} />
+            )}
+          />
         </Switch>
       </div>
       // </header>
