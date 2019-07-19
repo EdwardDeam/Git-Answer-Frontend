@@ -15,11 +15,6 @@ class App extends React.Component {
     loggedIn: false
   };
 
-  // componentDidMount = () => {
-  //   const token = localStorage.getItem("token");
-  //   if (token) this.setState({ loggedIn: true });
-  // };
-
   login = async (username, password) => {
     const URL = "http://localhost:5000/users/login";
     try {
@@ -35,16 +30,6 @@ class App extends React.Component {
       console.log(err.response);
     }
   };
-
-  // renderRedirect = () => {
-  //   if (!this.state.loggedIn) {
-  //     return <Redirect to="/profile" />;
-  //   }
-  // };
-
-  // handleLogin = () => {
-  //   this.setState({ loggedIn: true });
-  // };
 
   handleLogout = () => {
     localStorage.clear("token");
