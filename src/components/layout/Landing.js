@@ -3,6 +3,7 @@ import "./Landing.css";
 import PostPreview from "./PostPreview";
 import TrendingPosts from "./TrendingPosts";
 import Loading from "./Loader";
+import axios from "axios";
 const API = "https://git-answer-backend.now.sh/posts";
 
 export default class Landing extends Component {
