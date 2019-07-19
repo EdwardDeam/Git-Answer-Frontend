@@ -10,12 +10,30 @@ import Registration from "./components/Registration/Registration";
 import Routes from "./Routes";
 
 class App extends React.Component {
+  state = { loggedIn: false };
+
+  componentDidMount = () => {
+    const token = localStorage.getItem("token");
+    if (token) this.setState({ loggedIn: true });
+  };
+
+  // handleLogin = () => {
+  //   this.setState({ loggedIn: true });
+  // };
+
+  handleLogout = () => {
+    localStorage.clear("token");
+  };
+
   render() {
     return (
       <div className="App">
         <NavBar />
         <Header />
-        <Routes />
+        <Routes
+          loggedIn={this.state.loggedIn}
+          handleLogout={this.handleLogout}
+        />
       </div>
     );
   }
