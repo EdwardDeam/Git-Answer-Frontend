@@ -8,12 +8,6 @@ class Login extends React.Component {
   handleSubmit = async event => {
     event.preventDefault();
     const URL = "http://localhost:5000/users/login";
-    // state = {
-    // name: "anhar"
-    // password: "123456"
-    // }
-    // const username = this.state.username
-    // const passwood = thius.state.password
 
     const { username, password } = this.state;
     try {
@@ -21,17 +15,15 @@ class Login extends React.Component {
         username: username,
         password: password
       });
-      // token logic
-      // console.log(response);
+
       localStorage.setItem("token", response.data);
     } catch (err) {
       console.log(err.response);
     }
-
-    console.log(this.state);
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <h1>Login</h1>
