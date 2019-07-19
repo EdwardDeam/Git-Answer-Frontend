@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import Landing from "./components/layout/Landing";
 import Login from "./components/Login/Login";
+import PostDetail from "./components/PostDetail/PostDetail";
 
 class Routes extends React.Component {
   render() {
@@ -21,9 +22,10 @@ class Routes extends React.Component {
               <Login handleLogout={this.props.handleLogout} {...props} />
             )}
           />
+          <Route path="/profile" component={Profile} />
+          <Route path="/:id" component={PostDetail} />
         </Switch>
       </div>
-      // </header>
     );
   }
 }
