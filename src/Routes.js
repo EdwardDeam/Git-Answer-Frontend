@@ -19,7 +19,12 @@ class Routes extends React.Component {
           <Route
             path="/login"
             render={props => (
-              <Login handleLogout={this.props.handleLogout} {...props} />
+              <Login
+                handleLogout={this.props.handleLogout}
+                login={this.props.login}
+                loggedIn={this.props.loggedIn}
+                {...props}
+              />
             )}
           />
           <Route path="/profile" component={Profile} />
