@@ -1,14 +1,20 @@
 import React from "react";
 import axios from "axios";
 
-class PostForm extends React.Component {
+class NewPost extends React.Component {
   handleChange = e => {
     console.log(e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  handleTags = tags => {
+    return tags.split(", ");
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    const tags = this.handleTags(this.state.tags);
     const postPath = "http://localhost:5000/posts";
     const token = localStorage.getItem("token");
     axios
@@ -17,7 +23,7 @@ class PostForm extends React.Component {
         {
           title: this.state.title,
           text: this.state.text,
-          tags: this.state.tags
+          tags: tags
         },
         { headers: { "x-auth-token": token } }
       )
@@ -64,4 +70,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default PostForm;
+export default NewPost;

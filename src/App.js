@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import PostForm from "./components/layout/PostForm";
 import CommentForm from "./components/layout/CommentForm";
 import NavBar from "./components/layout/NavBar";
 import Header from "./components/layout/Header";
