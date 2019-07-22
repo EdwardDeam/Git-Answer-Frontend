@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class PostDetail extends Component {
   state = {
@@ -25,6 +26,9 @@ class PostDetail extends Component {
     console.log(this.state);
     // return <p>Loading</p>;
     // console.log(this.props.match.params);
+    const btn = {
+      border: "1px solid black"
+    };
     return (
       <div>
         <h1>Post Detail</h1>
@@ -34,6 +38,9 @@ class PostDetail extends Component {
             <p>{this.state.posts.author.username}</p>
             <p>{this.state.posts.date}</p>
             <p>{this.state.posts.text}</p>
+            <Link to={`/edit-post/${this.state.posts._id}`}>
+              <div style={btn}>Edit post</div>
+            </Link>
           </div>
         )}
       </div>

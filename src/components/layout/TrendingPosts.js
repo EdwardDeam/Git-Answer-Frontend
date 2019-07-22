@@ -9,7 +9,8 @@ export default function TrendingPosts(props) {
         {props.data.author} • {props.data.date}
       </h5>
       <p>
-        {props.data.text.slice(0, 99)}... <a href="#">See More</a>
+        {props.data.text.slice(0, 99)}...{" "}
+        <a href={`/post/${props.data._id}`}>See More</a>
       </p>
     </div>
   );
