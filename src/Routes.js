@@ -6,6 +6,7 @@ import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
 import PostDetail from "./components/PostDetail/PostDetail";
 import Newpost from "./components/NewPost/NewPost";
+import EditPost from "./components/EditPost/Editpost";
 
 class Routes extends React.Component {
   render() {
@@ -31,8 +32,9 @@ class Routes extends React.Component {
           />
           <Route path="/registration" component={Registration} />
           <Route path="/profile" component={Profile} />
-          <Route path="/:id" component={PostDetail} />
+          <Route path="/post/:id" component={PostDetail} />
           <Route path="/newpost" component={Newpost} />
+          <Route path="/edit-post/:id" component={EditPost} />
         </Switch>
       </div>
     );

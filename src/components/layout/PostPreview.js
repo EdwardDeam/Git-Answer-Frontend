@@ -11,7 +11,7 @@ export default function PostPreview(props) {
       </h4>
       <p>
         {props.data.text.slice(0, 400)}...{" "}
-        <a href={`/${props.data._id}`}>Keep Reading</a>
+        <a href={`/post/${props.data._id}`}>Keep Reading</a>
       </p>
     </div>
   );
