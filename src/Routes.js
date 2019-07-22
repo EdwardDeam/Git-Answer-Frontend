@@ -31,7 +31,7 @@ class Routes extends React.Component {
           />
           <Route path="/registration" component={Registration} />
           <Route path="/profile" component={Profile} />
-          <Route path="/posts/:id" component={PostDetail} />
+          <Route path="/:id" component={PostDetail} />
           <Route path="/newpost" component={Newpost} />
         </Switch>
       </div>

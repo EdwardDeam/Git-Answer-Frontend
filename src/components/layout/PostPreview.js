@@ -2,6 +2,7 @@ import React from "react";
 import "./PostPreview.css";
 
 export default function PostPreview(props) {
+  console.log(props.data);
   return (
     <div className="post-card">
       <h3>{props.data.title}</h3>
