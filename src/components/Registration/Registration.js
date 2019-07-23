@@ -24,12 +24,18 @@ class Registration extends React.Component {
       });
       console.log(response);
       this.setState({ data: response.data });
+      this.props.login(username, password);
     } catch (err) {
       console.log(err.response);
     }
-
     // console.log(this.state);
   };
+
+  // handleLogin = event => {
+  //   event.preventDefault();
+  //   const { username, password } = this.state;
+  //   this.props.login(username, password);
+  // };
 
   render() {
     return (
@@ -61,7 +67,7 @@ class Registration extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onClick={this.handleSubmit} />
       </form>
     );
   }
