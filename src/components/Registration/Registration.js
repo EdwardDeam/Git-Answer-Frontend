@@ -33,36 +33,60 @@ class Registration extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="text"
-            name="email"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="text"
-            name="password"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="login-background">
+        <div className="login-box">
+          <div className="upper-labels">
+            <div className="login-signup" id="active">
+              <h3>Sign Up</h3>
+            </div>
+            <div className="login-login" id="inactive">
+              <h3>Login</h3>
+            </div>
+          </div>
+
+          <div className="signup-form">
+            <form onSubmit={this.handleSubmit}>
+              <label for="username">Username:</label>
+              <input
+                type="text"
+                name="username"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+
+              <label for="email">E-mail Address:</label>
+              <input
+                type="text"
+                name="email"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+
+              <label for="password">Password:</label>
+              <input
+                type="text"
+                name="password"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+
+              <input type="checkbox" id="checkbox65" checked />
+              <label
+                for="checkbox65"
+                name="checkbox65_lbl"
+                className="css-label med elegant"
+              >
+                I agree to the <a href="#">terms and conditions</a>
+              </label>
+              <br />
+
+              <div className="login-submit-button">
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
