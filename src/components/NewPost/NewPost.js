@@ -15,7 +15,7 @@ class NewPost extends React.Component {
     e.preventDefault();
     console.log(this.state);
     const tags = this.handleTags(this.state.tags);
-    const postPath = "http://localhost:5000/posts";
+    const postPath = "https://git-answer-backend.now.sh/posts";
     const token = localStorage.getItem("token");
     axios
       .post(

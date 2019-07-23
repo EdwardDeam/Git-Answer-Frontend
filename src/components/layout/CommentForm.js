@@ -9,7 +9,7 @@ class CommentForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    const postPath = "http://localhost:5000/comments";
+    const postPath = "https://git-answer-backend.now.sh/comments";
     axios
       .post(postPath, { author: this.state.author, text: this.state.text })
       .then(res => {

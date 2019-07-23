@@ -16,7 +16,7 @@ class Registration extends React.Component {
     try {
       const { username, email, password } = this.state;
 
-      const postUser = "http://localhost:5000/users";
+      const postUser = "https://git-answer-backend.now.sh/users";
       const response = await axios.post(postUser, {
         username,
         password,

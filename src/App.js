@@ -15,7 +15,7 @@ class App extends React.Component {
   };
 
   login = async (username, password) => {
-    const URL = "http://localhost:5000/users/login";
+    const URL = "https://git-answer-backend.now.sh/users/login";
     try {
       const response = await axios.post(URL, {
         username: username,
