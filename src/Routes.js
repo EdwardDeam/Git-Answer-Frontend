@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
 import PostDetail from "./components/PostDetail/PostDetail";
 import Newpost from "./components/NewPost/NewPost";
-import EditPost from "./components/EditPost/Editpost";
+import Protected from "./components/Protected/Protected";
 
 class Routes extends React.Component {
   render() {
@@ -34,7 +34,7 @@ class Routes extends React.Component {
           <Route path="/profile" component={Profile} />
           <Route path="/post/:id" component={PostDetail} />
           <Route path="/newpost" component={Newpost} />
-          <Route path="/edit-post/:id" component={EditPost} />
+          <Route path="/auth" component={Protected} />
         </Switch>
       </div>
     );

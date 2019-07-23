@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { conditionalExpression } from "@babel/types";
+import { Redirect } from "react-router-dom";
 
 class EditPost extends React.Component {
   state = { posts: null };
@@ -51,6 +52,18 @@ class EditPost extends React.Component {
     }
   };
 
+  checkIfUserOwnsPost = (currentUser, posts) => {
+    // console.log(this.state.posts);
+    // console.log(currentUser);
+    const author = this.state.posts.author._id;
+    const currentUserId = currentUser.currentUser._id;
+    if (author !== currentUserId) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   render() {
     const inputSize = {
       width: "100%",
@@ -62,7 +75,13 @@ class EditPost extends React.Component {
     if (!this.state.posts) {
       return null;
     } else {
-      console.log(this.state);
+      const authorized = this.checkIfUserOwnsPost(
+        this.props.currentUser,
+        this.state.posts
+      );
+      if (!authorized) {
+        return <h1>Not authorized to edit this page!!!!! 🚨</h1>;
+      }
       const { title, text } = this.state.posts;
       return (
         <form>
