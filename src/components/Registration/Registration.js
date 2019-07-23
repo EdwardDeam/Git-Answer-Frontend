@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "../Login/Login.css";
 
 class Registration extends React.Component {
   constructor(props) {
