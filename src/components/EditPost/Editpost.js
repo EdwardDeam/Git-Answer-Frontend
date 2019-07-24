@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { conditionalExpression } from "@babel/types";
 import { Redirect } from "react-router-dom";
 
 class EditPost extends React.Component {

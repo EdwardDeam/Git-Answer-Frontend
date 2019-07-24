@@ -31,14 +31,15 @@ class App extends React.Component {
   };
 
   handleLogout = () => {
-    localStorage.clear("token");
+    console.log("clicked");
+    localStorage.removeItem("token");
   };
 
   render() {
     console.log(this.state);
     return (
       <div className="App">
-        <NavBar />
+        <NavBar handleLogout={this.handleLogout} />
         <Header />
         <Routes
           loggedIn={this.state.loggedIn}
