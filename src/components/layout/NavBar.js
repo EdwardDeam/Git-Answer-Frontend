@@ -12,6 +12,7 @@ export default class NavBar extends Component {
           <Link to="/auth/profile">Profile</Link>
           <Link to="/registration">Register</Link>
           <Link to="/login">Sign In</Link>
+          <Link to="/auth/new-post">New Post</Link>
           <button onClick={this.props.handleLogout}>Log Out</button>
         </div>
       </header>
