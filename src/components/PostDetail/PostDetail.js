@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class PostDetail extends Component {
   state = {
-    // posts: null
+    redirect: false
   };
   async componentDidMount() {
     console.log("inside component did mount");
@@ -22,9 +22,12 @@ class PostDetail extends Component {
     }
   }
 
-  handleDelete = id => {
+  handleDelete = async id => {
     console.log(id);
-    axios.delete(`https://git-answer-backend.now.sh/posts/${id}`);
+    const response = await axios.delete(
+      `https://git-answer-backend.now.sh/posts/${id}`
+    );
+    this.setState({ redirect: true });
   };
 
   render() {
@@ -35,25 +38,29 @@ class PostDetail extends Component {
     const btn = {
       border: "1px solid black"
     };
-    return (
-      <div>
-        <h1>Post Detail</h1>
-        {this.state.post && (
-          <div>
-            <h2>{this.state.post.title}</h2>
-            <p>{this.state.post.author.username}</p>
-            <p>{this.state.post.date}</p>
-            <p>{this.state.post.text}</p>
-            <Link to={`/auth/edit-post/${this.state.post._id}`}>
-              <div style={btn}>Edit post</div>
-            </Link>
-            <button onClick={() => this.handleDelete(this.state.post._id)}>
-              Delete Button
-            </button>
-          </div>
-        )}
-      </div>
-    );
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <div>
+          <h1>Post Detail</h1>
+          {this.state.post && (
+            <div>
+              <h2>{this.state.post.title}</h2>
+              <p>{this.state.post.author.username}</p>
+              <p>{this.state.post.date}</p>
+              <p>{this.state.post.text}</p>
+              <Link to={`/auth/edit-post/${this.state.post._id}`}>
+                <div style={btn}>Edit post</div>
+              </Link>
+              <button onClick={() => this.handleDelete(this.state.post._id)}>
+                Delete Button
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
   }
 }
 
