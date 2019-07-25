@@ -7,6 +7,7 @@ import Registration from "./components/Registration/Registration";
 import PostDetail from "./components/PostDetail/PostDetail";
 import Newpost from "./components/NewPost/NewPost";
 import Protected from "./components/Protected/Protected";
+import NavBar from "./components/layout/NavBar";
 
 class Routes extends React.Component {
   render() {
@@ -30,11 +31,21 @@ class Routes extends React.Component {
               />
             )}
           />
-          <Route path="/registration" component={Registration} />
-          <Route path="/profile" component={Profile} />
+          <Route
+            path="/registration"
+            render={props => (
+              <Registration
+                login={this.props.login}
+                loggedIn={this.props.loggedIn}
+                {...props}
+              />
+            )}
+          />
+          {/* <Route path="/profile" component={Profile} /> */}
           <Route path="/post/:id" component={PostDetail} />
           {/* <Route path="/newpost" component={Newpost} /> */}
           <Route path="/auth" component={Protected} />
+          {/* <NavBar handleLogout={this.props.handleLogout} /> */}
         </Switch>
       </div>
     );

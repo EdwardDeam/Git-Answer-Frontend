@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
@@ -26,7 +25,11 @@ class Login extends React.Component {
             </label>
             <label>
               Password:
-              <input onChange={this.handleChange} type="text" name="password" />
+              <input
+                onChange={this.handleChange}
+                type="password"
+                name="password"
+              />
             </label>
             <input type="submit" value="Submit" onClick={this.handleLogin} />
           </form>
