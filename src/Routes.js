@@ -5,9 +5,7 @@ import Landing from "./components/layout/Landing";
 import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
 import PostDetail from "./components/PostDetail/PostDetail";
-import Newpost from "./components/NewPost/NewPost";
 import Protected from "./components/Protected/Protected";
-import NavBar from "./components/layout/NavBar";
 
 class Routes extends React.Component {
   render() {
