@@ -3,7 +3,11 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 
 class EditPost extends React.Component {
-  state = { posts: null };
+  state = {
+    posts: null,
+    redirect: false
+  };
+
   async componentDidMount() {
     console.log("inside component did mount");
     const { id } = this.props.match.params;
@@ -30,14 +34,14 @@ class EditPost extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    console.log("heere");
     const token = localStorage.getItem("token");
     console.log(token);
     const { title, text, _id: author } = this.state.posts;
+    const { id } = this.props.match.params;
     console.log(title);
     try {
       const response = await axios.put(
-        `https://git-answer-backend.now.sh/posts/${this.state.posts._id}`,
+        `https://git-answer-backend.now.sh/posts/${id}`,
         {
           title,
           text,
