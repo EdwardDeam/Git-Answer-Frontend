@@ -36,7 +36,11 @@ class EditPost extends React.Component {
     e.preventDefault();
     const token = localStorage.getItem("token");
     console.log(token);
-    const { title, text, _id: author } = this.state.posts;
+    const {
+      title,
+      text,
+      author: { _id: author }
+    } = this.state.posts;
     const { id } = this.props.match.params;
     console.log(title);
     try {
@@ -55,6 +59,14 @@ class EditPost extends React.Component {
     }
   };
 
+  handleDelete = async id => {
+    console.log(id);
+    const response = await axios.delete(
+      `https://git-answer-backend.now.sh/posts/${id}`
+    );
+    this.setState({ redirect: true });
+  };
+
   checkIfUserOwnsPost = (currentUser, posts) => {
     // console.log(this.state.posts);
     // console.log(currentUser);
@@ -68,6 +80,7 @@ class EditPost extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     const inputSize = {
       width: "100%",
       height: "50px"
@@ -87,34 +100,39 @@ class EditPost extends React.Component {
       }
       const { title, text } = this.state.posts;
       return (
-        <form>
-          <label>Title</label>
-          <input
-            style={inputSize}
-            type="text"
-            name="title"
-            id="title"
-            defaultValue={title}
-            onChange={this.handleChange}
-          />
-          <label>Body</label>
-          <input
-            style={inputSize}
-            type="text"
-            name="text"
-            id="text"
-            defaultValue={text}
-            onChange={this.handleChange}
-          />
-          <label>Tags</label>
-          <input style={inputSize} type="text" name="tags" id="tags" />
-          <input
-            style={submitBtn}
-            type="submit"
-            value="Submit"
-            onClick={this.handleSubmit}
-          />
-        </form>
+        <div>
+          <form>
+            <label>Title</label>
+            <input
+              style={inputSize}
+              type="text"
+              name="title"
+              id="title"
+              defaultValue={title}
+              onChange={this.handleChange}
+            />
+            <label>Body</label>
+            <input
+              style={inputSize}
+              type="text"
+              name="text"
+              id="text"
+              defaultValue={text}
+              onChange={this.handleChange}
+            />
+            <label>Tags</label>
+            <input style={inputSize} type="text" name="tags" id="tags" />
+            <input
+              style={submitBtn}
+              type="submit"
+              value="Submit"
+              onClick={this.handleSubmit}
+            />
+          </form>
+          <button onClick={() => this.handleDelete(this.state.posts._id)}>
+            Delete Button
+          </button>
+        </div>
       );
     }
   }

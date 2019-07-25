@@ -12,7 +12,6 @@ class PostDetail extends Component {
     let API = `https://git-answer-backend.now.sh/posts/${id}`;
     try {
       const response = await axios.get(API);
-      console.log(response);
       this.setState({
         post: response.data
       });
@@ -40,10 +39,13 @@ class PostDetail extends Component {
     };
     if (this.state.redirect) {
       return <Redirect to="/" />;
+    } else if (!this.state.post) {
+      return null;
     } else {
       return (
         <div>
           <h1>Post Detail</h1>
+
           {this.state.post && (
             <div>
               <h2>{this.state.post.title}</h2>
@@ -53,9 +55,6 @@ class PostDetail extends Component {
               <Link to={`/auth/edit-post/${this.state.post._id}`}>
                 <div style={btn}>Edit post</div>
               </Link>
-              <button onClick={() => this.handleDelete(this.state.post._id)}>
-                Delete Button
-              </button>
             </div>
           )}
         </div>
